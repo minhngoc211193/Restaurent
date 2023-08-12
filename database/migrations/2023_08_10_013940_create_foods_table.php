@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('foods', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('type_id')->constrained('types');
+            $table->foreignId('type_id')->constrained()->onDelete('cascade');
             $table->string('name', 100);
             $table->string('description', 255);
             $table->string('price', 255);
