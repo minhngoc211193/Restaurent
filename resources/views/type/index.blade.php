@@ -7,10 +7,10 @@
     @foreach($types as $type)
         <tr>
             <td>{{ $type->id }}</td>
-            <td>{{ $type->name }}</td>
+            <td> <a href="{{ route('types.show', $type->id) }}">{{$type->name}}</a></td>
             <td>
                 <a href="/types/{{$type->id}}/edit">Edit</a>
-                <form action="/types/{{ $type->id }}" method="post" style="display: inline">
+                <form style="display:inline-block" method="POST" action="{{ route('types.destroy', $type->id) }}">
                     @method('DELETE')
                     @csrf
                     <input type="submit" value="Delete" onclick="return confirm('Are you sure?');">
