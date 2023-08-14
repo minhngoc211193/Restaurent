@@ -72,6 +72,6 @@ class TypeController extends Controller
     {
         $type = Type::find($id);
         $type->delete();
-        return redirect()->route('type.index');
+        return redirect('/types');
     }
 }
