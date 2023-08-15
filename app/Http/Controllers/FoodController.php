@@ -34,8 +34,11 @@ class FoodController extends Controller
     {
         $food = new Food();
         $food->type_id = $request->type_id;
-        // $food->image = $request->image;
         $food->name= $request->name;
+        if ($request->hasFile('image')) {
+            $food->image = $request->file('image')->store('public/images');
+            $food->image = env('APP_URL').str_replace('public/', '/upload/', $food->image);
+        }
         $food->description = $request->description;
         $food->price= $request->price;
         $food->save();
@@ -69,6 +72,9 @@ class FoodController extends Controller
         $food = Food::find($id);
         $food->type_id = $request->type_id;
         $food->name = $request->name;
+        if ($request->hasFile('image')) {
+            $food->image = $request->file('image')->store('public/images');
+        }
         $food->description = $request->description;
         $food->price = $request->price;
         $food->save();

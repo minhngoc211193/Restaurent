@@ -1,3 +1,5 @@
+@extends('background.main')
+@section ('content')
 <form action="/tablereses" method="post">
     @csrf
     <label for="view">View</label>
@@ -12,3 +14,4 @@
     <br>
     <input type="submit" value="Create">
 </form>
+@endsection

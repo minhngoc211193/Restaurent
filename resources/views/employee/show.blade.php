@@ -1,3 +1,5 @@
+@extends('background.main')
+@section ('content')
 {{$employee->id}}<br>
 {{$employee->name}}<br>
 {{$employee->gender}}<br>
@@ -17,3 +19,4 @@
         </tr>
     @endforeach
 </table>
+@endsection

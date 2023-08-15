@@ -1,3 +1,5 @@
+@extends('background.main')
+@section ('content')
 <form action="/foods/{{$food->id}}" method="post">
     @method('PUT')
     @csrf
@@ -15,3 +17,4 @@
     <br>
     <input type="submit" value="Update">
 </form>
+@endsection

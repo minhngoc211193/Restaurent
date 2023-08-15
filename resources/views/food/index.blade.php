@@ -1,3 +1,5 @@
+@extends('background.main')
+@section ('content')
 <table style="border:1px solid">
     <tr style="border:1px solid">
         <th>Id</th>
@@ -28,3 +30,4 @@
 <p>
         <a href="/foods/create" class="btn btn-success">Add New Type</a>
       </p>
+@endsection

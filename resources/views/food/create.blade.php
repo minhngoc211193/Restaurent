@@ -1,3 +1,5 @@
+@extends('background.main')
+@section ('content')
 <form action="/foods" method="post">
     @csrf
     <label for="name">Type</label>
@@ -15,3 +17,4 @@
     <br>
     <input type="submit" value="Create">
 </form>
+@endsection

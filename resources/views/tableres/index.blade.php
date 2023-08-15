@@ -1,3 +1,5 @@
+@extends('background.main')
+@section ('content')
 <table style="border:1px solid">
     <tr style="border:1px solid">
         <th>Id</th>
@@ -21,3 +23,4 @@
         </tr>
     @endforeach
 </table>
+@endsection
