@@ -25,3 +25,6 @@
         </tr>
     @endforeach
 </table>
+<p>
+        <a href="/foods/create" class="btn btn-success">Add New Type</a>
+      </p>

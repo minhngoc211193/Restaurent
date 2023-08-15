@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Employee;
 use App\Models\Tableres;
 use Illuminate\Http\Request;
 
@@ -22,7 +23,8 @@ class TableresController extends Controller
     public function create()
     {
         $tablereses = Tableres::all();
-        return view('tableres.create', ['tablereses' => $tablereses]);
+        $employees = Employee::all();
+        return view('tableres.create', ['tablereses' => $tablereses, 'employees' => $employees]);
     }
 
     /**
@@ -32,6 +34,7 @@ class TableresController extends Controller
     {
         $tableres = new Tableres();
         $tableres->view = $request->view;
+        $tableres->employee_id = $request->employee_id;
         $tableres->save();
         return redirect('/tablereses');
     }
@@ -51,7 +54,8 @@ class TableresController extends Controller
     public function edit(string $id)
     {
         $tableres = Tableres::find($id);
-        return view('tableres.edit', ['tableres' => $tableres]);
+        $employees = Employee::all();
+        return view('tableres.edit', ['tableres' => $tableres, 'employees' => $employees]);
     }
 
     /**
@@ -61,6 +65,7 @@ class TableresController extends Controller
     {
         $tableres = Tableres::find($id);
         $tableres->view = $request->view;
+        $tableres->employee_id = $request->employee_id;
         $tableres->save();
         return redirect('/tablereses');
     }

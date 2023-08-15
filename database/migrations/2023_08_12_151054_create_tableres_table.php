@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('tablereses', function (Blueprint $table) {
             $table->id();
             $table->string('view');
+            $table->foreignId('employee_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });
     }

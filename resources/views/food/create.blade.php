@@ -1,6 +1,6 @@
 <form action="/foods" method="post">
     @csrf
-    <label for="name">Name</label>
+    <label for="name">Type</label>
     <select name="type_id" id="type_id">
         @foreach($types as $type)
             <option value="{{$type->id}}">{{$type->name}}</option>

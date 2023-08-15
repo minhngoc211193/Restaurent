@@ -1,9 +1,11 @@
 <?php
 
+use App\Http\Controllers\EmployeeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TypeController;
 use App\Http\Controllers\FoodController;
 use App\Http\Controllers\TableresController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -29,4 +31,7 @@ Route::resources([
 );
 Route::resources([
     'tablereses' => TableresController::class
+]);
+Route::resources([
+    'employees' => EmployeeController::class
 ]);
