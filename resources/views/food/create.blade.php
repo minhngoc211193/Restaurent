@@ -1,6 +1,6 @@
 @extends('background.main')
 @section ('content')
-<form action="/foods" method="post">
+<form action="/foods" method="post" enctype="multipart/form-data">
     @csrf
     <label for="name">Type</label>
     <select name="type_id" id="type_id">
@@ -10,6 +10,9 @@
     </select><br>
     <label for="name">Name</label>
     <input type="text" name="name" id="name"><br>
+    <label for="image">Image</label>
+    <input type="file" name="image" id="image">
+    <br>
     <label for="description">Description</label>
     <input type="text" name="description" id="description"><br>
     <label for="price">Price</label>

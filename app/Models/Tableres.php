@@ -14,4 +14,7 @@ class Tableres extends Model
     {
         return $this->belongsTo(Employee::class);
     }
+    public function foods(){
+        return $this->belongsToMany(Food::class);
+    }
 }

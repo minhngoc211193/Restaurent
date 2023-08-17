@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Employee;
+use App\Models\Food;
 use App\Models\Tableres;
 use Illuminate\Http\Request;
 
@@ -24,7 +25,8 @@ class TableresController extends Controller
     {
         $tablereses = Tableres::all();
         $employees = Employee::all();
-        return view('tableres.create', ['tablereses' => $tablereses, 'employees' => $employees]);
+        $foods = Food::all();
+        return view('tableres.create', ['tablereses' => $tablereses, 'employees' => $employees, 'foods' => $foods]);
     }
 
     /**
@@ -36,6 +38,7 @@ class TableresController extends Controller
         $tableres->view = $request->view;
         $tableres->employee_id = $request->employee_id;
         $tableres->save();
+        $tableres->foods()->attach($request->foods);
         return redirect('/tablereses');
     }
 
@@ -55,7 +58,8 @@ class TableresController extends Controller
     {
         $tableres = Tableres::find($id);
         $employees = Employee::all();
-        return view('tableres.edit', ['tableres' => $tableres, 'employees' => $employees]);
+        $foods = Food::all();
+        return view('tableres.edit', ['tableres' => $tableres, 'employees' => $employees, 'foods' => $foods]);
     }
 
     /**
@@ -66,6 +70,7 @@ class TableresController extends Controller
         $tableres = Tableres::find($id);
         $tableres->view = $request->view;
         $tableres->employee_id = $request->employee_id;
+        $tableres->foods()->sync($request->foods);
         $tableres->save();
         return redirect('/tablereses');
     }

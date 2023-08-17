@@ -5,6 +5,7 @@
         <th>Id</th>
         <th>Type</th>
         <th>Name</th>
+        <th>Image</th>
         <th>Description</th>
         <th>Price</th>
         <th>Action</th>
@@ -14,6 +15,7 @@
             <td>{{ $food->id }}</td>
             <td>{{ $food->type->name }}</td>
             <td>{{ $food->name }}</td>
+            <td><img src="http://127.0.0.1:8000{{ $food->image}}"></td>
             <td>{{ $food->description }}</td>
             <td>{{ $food->price }}</td>
             <td>

@@ -1,6 +1,6 @@
 @extends('background.main')
 @section ('content')
-<form action="/tablereses" method="post">
+<form action="/tablereses" method="post" >
     @csrf
     <label for="view">View</label>
     <input type="text" name="view" id="view"><br>

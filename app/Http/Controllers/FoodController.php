@@ -37,7 +37,7 @@ class FoodController extends Controller
         $food->name= $request->name;
         if ($request->hasFile('image')) {
             $food->image = $request->file('image')->store('public/images');
-            $food->image = env('APP_URL').str_replace('public/', '/upload/', $food->image);
+            $food->image = str_replace('public/', '/storage/', $food->image);
         }
         $food->description = $request->description;
         $food->price= $request->price;
@@ -74,6 +74,7 @@ class FoodController extends Controller
         $food->name = $request->name;
         if ($request->hasFile('image')) {
             $food->image = $request->file('image')->store('public/images');
+            $food->image = str_replace('public/', '/storage/', $food->image);
         }
         $food->description = $request->description;
         $food->price = $request->price;
