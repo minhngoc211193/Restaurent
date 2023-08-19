@@ -35,3 +35,5 @@ Route::resources([
 Route::resources([
     'employees' => EmployeeController::class
 ]);
+Route::get('/search', [FoodController::class, 'search'])->name('search');
+

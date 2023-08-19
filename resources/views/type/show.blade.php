@@ -2,6 +2,7 @@
 @section ('content')
 {{$type->id}}<br>
 {{$type->name}}<br>
+{{$type->description}}<br>
 <table>
     <tr>
         <th>ID</th>

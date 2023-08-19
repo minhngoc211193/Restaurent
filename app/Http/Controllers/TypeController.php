@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Type;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class TypeController extends Controller
 {
@@ -32,6 +33,11 @@ class TypeController extends Controller
     {
         $type = new Type();
         $type->name= $request->name;
+        if ($request->hasFile('image')) {
+            $type->image = $request->file('image')->store('public/images');
+            $type->image = str_replace('public/', '/storage/', $type->image);
+        }
+        $type->description = $request->description;
         $type->save();
         return redirect('/types');
     }
@@ -61,6 +67,12 @@ class TypeController extends Controller
     {
         $type = Type::find($id);
         $type->name= $request->name;
+        if ($request->hasFile('image')) {
+            Storage::delete(str_replace('/storage/', 'public/', $type->image));
+            $type->image = $request->file('image')->store('public/images');
+            $type->image = str_replace('public/', '/storage/', $type->image);
+        }
+        $type->description = $request->description;
         $type->save();
         return redirect('/types');
     }

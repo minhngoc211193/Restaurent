@@ -6,12 +6,16 @@
       <tr>
         <th>Id</th>
         <th>Name</th>
+        <th>Image</th>
+        <th>Description</th>
         <th>Action</th>
       </tr>
       @foreach($types as $type)
         <tr>
             <td>{{ $type->id }}</td>
             <td> <a href="{{ route('types.show', $type->id) }}">{{$type->name}}</a></td>
+            <td><img src="http://127.0.0.1:8000{{ $type->image}}"></td>
+            <td>{{$type->description}}</td>
             <td>
                 <a href="/types/{{$type->id}}/edit">Edit</a>
                 <form style="display:inline-block" method="POST" action="{{ route('types.destroy', $type->id) }}">

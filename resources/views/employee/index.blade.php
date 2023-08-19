@@ -1,6 +1,8 @@
 @extends('background.main')
 @section ('content')
-<table style="border:1px solid">
+<div class="container mt-3">
+  <h2>Employee</h2>       
+  <table class="table table-bordered">
     <tr style="border:1px solid">
         <th>Id</th>
         <th>Name</th>
@@ -30,6 +32,7 @@
             </td>
         </tr>
     @endforeach
+  </table>
 </table>
 <p>
         <a href="/employees/create" class="btn btn-success">Add New Employee</a>

@@ -1,6 +1,8 @@
 @extends('background.main')
 @section ('content')
-<table style="border:1px solid">
+<div class="container mt-3">
+  <h2>Menu</h2>       
+  <table class="table table-bordered">
     <tr style="border:1px solid">
         <th>Id</th>
         <th>Type</th>
@@ -10,6 +12,7 @@
         <th>Price</th>
         <th>Action</th>
     </tr>
+    @isset($foods)
     @foreach($foods as $food)
         <tr>
             <td>{{ $food->id }}</td>
@@ -28,8 +31,14 @@
             </td>
         </tr>
     @endforeach
+    @else
+        <tr><td>
+            Not have food
+        </td></tr>
+    @endif
+  </table>
 </table>
 <p>
-        <a href="/foods/create" class="btn btn-success">Add New Type</a>
+        <a href="/foods/create" class="btn btn-success">Add New Food</a>
       </p>
 @endsection

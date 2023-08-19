@@ -10,7 +10,13 @@
             <option value="{{$employee->id}}">{{$employee->name}}</option>
         @endforeach
     </select><br>
-    
+    <div class="form-group">
+        <p> Menu</p>
+        @foreach($foods as $food)
+        <input type="checkbox" class="form-check-input" name="food[]" id="food" value ="{{$food->id}}">
+        <label for="food" class="form-check-label" style="margin-right:3%">{{$food->name}}</label><br>
+        @endforeach
+    </div>
     <br>
     <input type="submit" value="Create">
 </form>
