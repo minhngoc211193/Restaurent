@@ -1,44 +1,32 @@
 @extends('background.main')
 @section ('content')
-<div class="container mt-3">
-  <h2>Menu</h2>       
-  <table class="table table-bordered">
-    <tr style="border:1px solid">
-        <th>Id</th>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Image</th>
-        <th>Description</th>
-        <th>Price</th>
-        <th>Action</th>
-    </tr>
-    @isset($foods)
-    @foreach($foods as $food)
-        <tr>
-            <td>{{ $food->id }}</td>
-            <td>{{ $food->type->name }}</td>
-            <td>{{ $food->name }}</td>
-            <td><img src="http://127.0.0.1:8000{{ $food->image}}"></td>
-            <td>{{ $food->description }}</td>
-            <td>{{ $food->price }}</td>
-            <td>
-                <a href="/foods/{{$food->id}}/edit">Edit</a>
+@isset($foods)
+<div class="container-fluid product py-5 my-5" style="text-align:center">
+        <div class=" center-container">
+                <p class="fs-5 fw-medium fst-italic text-primary">Menu</p>
+                <h1 class="display-6"> Chọn món đi</h1>
+            </div>
+            @foreach($foods as $food)
+            <div class="" style="display:inline-block; width: 25%; margin: 10px">
+                  <img src="http://127.0.0.1:8000{{ $food->image}}" width="268" height="400">
+                    <div class="text-center p-4 position-relative mt-n5 mx-4">
+                        <h4>{{$food->name}}</h4>
+                        <p>{{$food->description}}</p>
+                        <p>{{$food->price}}</p>
+                        <a href="/foods/{{$food->id}}/edit">Edit</a>
                 <form style="display:inline-block" method="POST" action="{{ route('foods.destroy', $food->id) }}">
                 @csrf
                 @method('DELETE')
                 <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure?')">Delete</button>
               </form>
-            </td>
-        </tr>
-    @endforeach
+                    </div>
+            </div>
+            @endforeach
+        </div>
+    </div>
     @else
         <tr><td>
             Not have food
         </td></tr>
     @endif
-  </table>
-</table>
-<p>
-        <a href="/foods/create" class="btn btn-success">Add New Food</a>
-      </p>
 @endsection

@@ -34,7 +34,4 @@
     @endforeach
   </table>
 </table>
-<p>
-        <a href="/employees/create" class="btn btn-success">Add New Employee</a>
-      </p>
 @endsection

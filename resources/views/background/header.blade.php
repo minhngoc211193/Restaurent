@@ -23,11 +23,18 @@
                                 <a href="/tablereses" class="dropdown-item">Table Manager</a>
                             </div>
                         </div>
-                        <a href="#" class="nav-item nav-link">Contact</a>
+                        <div class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Create</a>
+                            <div class="dropdown-menu bg-light rounded-0 m-0">
+                                <a href="/foods/create" class="dropdown-item">New Food</a>
+                                <a href="/employees/create" class="dropdown-item"> Add Employee</a>
+                                <a href="/tablereses/create" class="dropdown-item">New Table</a>
+                            </div>
+                        </div>
                     </div>
                     <div id="search" class="border-start ps-4 d-none d-lg-block">
-                    <form action="route('/search')" method="get">
-                        <input type="text" class="form-control" placeholder="search">
+                    <form action="{{route('search')}}" method="get">
+                        <input type="text" class="form-control" placeholder="search" name="search">
                         <button type="submit" class="btn btn-sm p-0"><i class="fa fa-search"></i></button>
                     </form>
                     </div>

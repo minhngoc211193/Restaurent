@@ -101,9 +101,10 @@ class FoodController extends Controller
     {
         $keyword = $request->input('search');
         $foods = Food::where('name', 'like', '%' . $keyword . '%')->get();
-
+            // echo ($foods);
         // Trả về view hiển thị kết quả tìm kiếm
-        return view('/foods', compact('foods', 'keyword'));
+        return view('food.index',['foods'=>$foods]);
         }
 
     }
+

@@ -28,7 +28,5 @@
   </table> 
     @endforeach
 </table>
-<p>
-        <a href="/tablereses/create" class="btn btn-success">Add New Tableres</a>
-      </p>
+
 @endsection
