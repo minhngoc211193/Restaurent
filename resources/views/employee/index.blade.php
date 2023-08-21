@@ -1,7 +1,10 @@
 @extends('background.main')
 @section ('content')
 <div class="container mt-3">
-  <h2>Employee</h2>       
+  <h2 style="text-align:center">Employee</h2>
+  <h2>
+        <a href="/employees/create" class="bi bi-plus-circle" style="width: 45px; height: 43px;"></a>
+</h2>       
   <table class="table table-bordered">
     <tr style="border:1px solid">
         <th>Id</th>
@@ -27,7 +30,7 @@
                 <form style="display:inline-block" method="POST" action="{{ route('employees.destroy', $employee->id) }}">
                 @csrf
                 @method('DELETE')
-                <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure?')">Delete</button>
+                <button type="submit" class="btn btn-success" onclick="return confirm('Are you sure?')">Delete</button>
               </form>
             </td>
         </tr>

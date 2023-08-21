@@ -1,7 +1,10 @@
 @extends('background.main')
 @section ('content')
 <div class="container mt-3">
-  <h2>List of Table</h2>       
+  <h2 style="text-align: center;">List of Table</h2>
+  <h2>
+        <a href="/tablreses/create" class="bi bi-plus-circle" style="width: 45px; height: 43px;"></a>
+</h2>       
   <table class="table table-bordered">
     <tr style="border:1px solid">
         <th>Id</th>

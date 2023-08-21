@@ -19,22 +19,18 @@ class AuthenticateController extends Controller
         return view('register');
     }
 
-    public function login(Request $request): RedirectResponse
+    public function login(Request $request)
     {
         $credentials = $request->validate([
             'name' => ['required'],
             'password' => ['required'],
         ]);
- 
         if (Auth::attempt($credentials)) {
-            $request->session()->regenerate();
- 
+                // kiểm tra 
             return redirect('/foods');
         }
  
-        return back()->withErrors([
-            'email' => 'The provided credentials do not match our records.',
-        ])->onlyInput('email');
+        return redirect('/login');
     }
 
     public function register(Request $request)
@@ -43,12 +39,11 @@ class AuthenticateController extends Controller
             'name' => 'required',
             'email' => 'required|email',
             'password' => 'required',
-            'repasswords' => 'required',
+            'typeofuser' => 'required',
         ]);
-
         User::create($request->all());
         
-        $credentials = $request->only('name', 'email', 'password', 'repassword');
+        $credentials = $request->only('name', 'email', 'password',);
         auth()->attempt($credentials);
         return redirect('/foods');
     }
@@ -61,4 +56,5 @@ class AuthenticateController extends Controller
  
         return redirect('/login');
     }
+   
 }
