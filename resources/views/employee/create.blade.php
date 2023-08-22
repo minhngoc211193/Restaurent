@@ -2,20 +2,64 @@
 @section ('content')
 <form action="/employees" method="post">
     @csrf
-    <label for="name">Name</label>
-    <input type="text" name="name" id="name"><br>
-    <label for="gender">Gender</label>
-    <input type="text" name="gender" id="gender"><br>
-    <label for="birthday">Birtday</label>
-    <input type="text" name="birthday" id="birthday"><br>
-    <label for="phone">Phone</label>
-    <input type="text" name="phone" id="phone" ><br>
-    <label for="email">Email</label>
-    <input type="text" name="email" id="email"><br>
-    <label for="address">Address</label>
-    <input type="text" name="address" id="address" >
-    <br>
-    <br>
-    <input type="submit" value="Create">
+    <div class="mask d-flex align-items-center h-100 gradient-custom-3" >
+    <div class="container h-100" >
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-12 col-md-9 col-lg-7 col-xl-6">
+          <div class="card" style="border-radius: 15px;">
+            <div class="card-body p-5"> 
+                <br>
+                <br>
+                <br>
+              <h2 class="text-uppercase text-center mb-5">ADD NEW Employee</h2>
+
+              <form>
+
+                <div class="form-outline mb-4">
+                  <input type="text" id="name" name="name" placeholder="Name" class="form-control form-control-lg" />
+                </div>
+                <div class="d-md-flex justify-content-start align-items-center mb-4 py-2">
+
+                    <h6 class="mb-0 me-4">Gender</h6>
+
+                    <div class="form-check form-check-inline mb-0 me-4">
+                    <input class="form-check-input" type="radio" name="gender" id="gender"
+                        value="Male" />
+                    <label class="form-check-label" for="gender">Male</label>
+                    </div>
+
+                    <div class="form-check form-check-inline mb-0 me-4">
+                    <input class="form-check-input" type="radio" name="gender" id="gender"
+                        value="Female" />
+                    <label class="form-check-label" for="gender">Female</label>
+                    </div>
+                </div>
+                <div class="form-outline mb-4">
+                  <input type="text" id="birthday" name="birthday" placeholder="birthday" class="form-control form-control-lg" />
+                </div>
+                <div class="form-outline mb-4">
+                  <input type="text" id="phone" name="phone" placeholder="phone" class="form-control form-control-lg" />
+                </div>
+                <div class="form-outline mb-4">
+                  <input type="text" id="email" name="email" placeholder="email" class="form-control form-control-lg" />
+                </div>
+                <div class="form-outline mb-4">
+                  <input type="text" id="address" name="address" placeholder="address" class="form-control form-control-lg" />
+                </div>
+
+                <div class="d-flex justify-content-center">
+                  <button type="submit" value="Create"
+                    class="btn btn-success btn-block btn-lg gradient-custom-4 text-body">Create</button>
+                </div>
+
+
+              </form>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </form>
 @endsection

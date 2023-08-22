@@ -1,13 +1,15 @@
 @extends('background.main')
 @section ('content')
 @isset($foods)
-<div class="container-fluid product py-5 my-5" style="text-align:center">
-<h2>
+<div class="container-fluid product py-5 my-5" style="text-align:center;">
+<div style="text-align:left;">
+<h2> 
         <a href="/foods/create" class="bi bi-plus-circle" style="width: 45px; height: 43px;"></a>
 </h2>
+</div>
         <div class=" center-container">
-                <p class="fs-5 fw-medium fst-italic text-primary">Menu</p>
-                <h1 class="display-6"> Chọn món đi</h1>
+                <h1 class="fst-italic">Menu</h1>
+                <h2 class="display-10"> Chọn món đi</h2>
             </div>
             @foreach($foods as $food)
             <div class="" style="display:inline-block; width: 25%; margin: 10px">

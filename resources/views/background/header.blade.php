@@ -1,10 +1,10 @@
     
     <!-- Navbar Start -->
-    <div class="container-fluid bg-white sticky-top">
+    <div class="container-fluid fixed-top" style="background-color:rgba(255,239,213)">
         <div class="container">
-            <nav class="navbar navbar-expand-lg bg-white navbar-light py-2 py-lg-0">
+            <nav class="navbar navbar-expand-lg navbar-light py-2 py-lg-0">
                 <a href="index.html" class="navbar-brand">
-                    <img class="img-fluid" src="img/logo.png" alt="Logo">
+                    <img class="img-fluid" src="/storage/images/Logo.jpg" alt="Logo" style="width:95px; height:47px">
                 </a>
                 <button type="button" class="navbar-toggler ms-auto me-0" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
                     <span class="navbar-toggler-icon"></span>
@@ -14,7 +14,7 @@
                         <a href="/foods" class="nav-item nav-link active">Home</a>
                         <a href="#" class="nav-item nav-link">About</a>
                         <a href="/foods" class="nav-item nav-link">Menu</a>
-                        <a href="/types" class="nav-item nav-link">Store</a>
+                        <a href="/tablereses/create" class="nav-item nav-link">Book a table</a>
                         <div class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
                             <div class="dropdown-menu bg-light rounded-0 m-0">
@@ -32,7 +32,8 @@
                                 <a href="/tablereses/create" class="dropdown-item">New Table</a>
                                 <form action="{{route('logout')}}" method="post">
                                     @csrf
-                                    <button type="submit" class="btn btn-primary"> Logout</button>
+                                    <button type="submit" class="btn btn-primary"
+                                    > Logout</button>
                                 </form>
                             </div>
                         </div>
