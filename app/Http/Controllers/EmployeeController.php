@@ -21,6 +21,9 @@ class EmployeeController extends Controller
      */
     public function create()
     {
+        if (!auth()->check()) {
+            return redirect('/login');
+        }
         $employees = Employee::all();
         return view('employee.create');
     }
@@ -55,6 +58,9 @@ class EmployeeController extends Controller
      */
     public function edit(string $id)
     {
+        if (!auth()->check()) {
+            return redirect('/login');
+        }
         $employee = Employee::find($id);
         return view('employee.edit', ['employee' => $employee]);
     }
@@ -80,6 +86,9 @@ class EmployeeController extends Controller
      */
     public function destroy(string $id)
     {
+        if (!auth()->check()) {
+            return redirect('/login');
+        }
         $employee = Employee::find($id);
         $employee->delete();
         return redirect('/employees');

@@ -22,7 +22,10 @@ class FoodController extends Controller
      * Show the form for creating a new resource.
      */
     public function create()
-    {
+    {   
+        if (!auth()->check()) {
+            return redirect('/login');
+        }
         $types = Type::all();
         $foods = Food::all();
         return view('food.create', ['foods' => $foods, 'types' => $types]);
@@ -60,7 +63,10 @@ class FoodController extends Controller
      * Show the form for editing the specified resource.
      */
     public function edit(string $id)
-    {
+    {           
+        if (!auth()->check()) {
+        return redirect('/login');
+    }
         $food = Food::find($id);
         $types = Type::all();
         return view('food.edit', ['food'=>$food, 'types' => $types]);
@@ -71,6 +77,7 @@ class FoodController extends Controller
      */
     public function update(Request $request, string $id)
     {
+
         $food = Food::find($id);
         $food->type_id = $request->type_id;
         $food->name = $request->name;
@@ -92,7 +99,16 @@ class FoodController extends Controller
      */
     public function destroy(string $id)
     {
+        if (!auth()->check()) {
+            return redirect('/login');
+        }
         $food = Food::find($id);
+        
+        //xóa ảnh sản phẩm
+        if (Storage::exists(str_replace('/storage/','public/', $food->image))) {
+            Storage::delete(str_replace('/storage/','public/', $food->image));
+        }
+        // xóa món
         $food->delete();
         return redirect('/foods');
     }

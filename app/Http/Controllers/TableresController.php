@@ -15,7 +15,9 @@ class TableresController extends Controller
     public function index()
     {
         $tablereses = Tableres::all();
-        return view ('tableres.index', ['tablereses' => $tablereses]);
+        $employees = Employee::all();
+        $foods = Food::all();
+        return view ('tableres.index', ['tablereses' => $tablereses,'employees'=>$employees, 'foods' => $foods]);
     }
 
     /**
@@ -23,6 +25,9 @@ class TableresController extends Controller
      */
     public function create()
     {
+        if (!auth()->check()) {
+            return redirect('/login');
+        }
         $tablereses = Tableres::all();
         $employees = Employee::all();
         $foods = Food::all();
@@ -37,6 +42,8 @@ class TableresController extends Controller
         $tableres = new Tableres();
         $tableres->view = $request->view;
         $tableres->employee_id = $request->employee_id;
+        $tableres->customer = $request->customer;
+        $tableres->phone = $request->phone;
         $tableres->save();
         $tableres->foods()->attach($request->foods);
         return redirect('/tablereses');
@@ -48,7 +55,8 @@ class TableresController extends Controller
     public function show(string $id)
     {
         $tableres = Tableres::find($id);
-        return view('tableres.show', ['tableres' => $tableres]);
+        $food=Food::find($id);
+        return view('tableres.show', ['tableres' => $tableres, 'food' => $food]);
     }
 
     /**
@@ -56,6 +64,9 @@ class TableresController extends Controller
      */
     public function edit(string $id)
     {
+        if (!auth()->check()) {
+            return redirect('/login');
+        }
         $tableres = Tableres::find($id);
         $employees = Employee::all();
         $foods = Food::all();
@@ -70,6 +81,8 @@ class TableresController extends Controller
         $tableres = Tableres::find($id);
         $tableres->view = $request->view;
         $tableres->employee_id = $request->employee_id;
+        $tableres->customer = $request->customer;
+        $tableres->phone = $request->phone;
         $tableres->foods()->sync($request->foods);
         $tableres->save();
         return redirect('/tablereses');
@@ -80,6 +93,9 @@ class TableresController extends Controller
      */
     public function destroy(string $id)
     {
+        if (!auth()->check()) {
+            return redirect('/login');
+        }
         $tableres = Tableres::find($id);
         $tableres->delete();
         return redirect('/tablereses');

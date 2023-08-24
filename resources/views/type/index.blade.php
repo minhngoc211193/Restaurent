@@ -1,6 +1,6 @@
 @extends('background.main')
 @section ('content')
-<div class="container mt-3">
+<div class="container mt-3" style="text-align:center">
   <br>
   <br>
   <br>
@@ -13,7 +13,8 @@
             <div class="" style="display:inline-block; width: 25%; margin: 10px;">
                   <img src="http://127.0.0.1:8000{{ $type->image}}" width="268" height="400">
                     <div class="text-center p-4 position-relative mt-n5 mx-4">
-                        <h4>{{$type->name}}</h4>
+                        <h4><a href="/types/{{$type->id}}">{{$type->name}}</a></h4>
+                        <br>
                         <a href="/types/{{$type->id}}/edit">Edit</a>
                 <form style="display:inline-block" method="POST" action="{{ route('types.destroy', $type->id) }}">
                 @csrf

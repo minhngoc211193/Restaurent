@@ -12,7 +12,6 @@
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <div class="navbar-nav ms-auto">
                         <a href="/foods" class="nav-item nav-link active">Home</a>
-                        <a href="#" class="nav-item nav-link">About</a>
                         <a href="/foods" class="nav-item nav-link">Menu</a>
                         <a href="/tablereses/create" class="nav-item nav-link">Book a table</a>
                         <div class="nav-item dropdown">
@@ -20,7 +19,7 @@
                             <div class="dropdown-menu bg-light rounded-0 m-0">
                                 <a href="/foods" class="dropdown-item">Menu Manager</a>
                                 <a href="/employees" class="dropdown-item">Employee Manager</a>
-                                <a href="/tablereses" class="dropdown-item">Table Manager</a>
+                                <a href="/types" class="dropdown-item">Type Manager</a>
                             </div>
                         </div>
                         @if(Auth::check())

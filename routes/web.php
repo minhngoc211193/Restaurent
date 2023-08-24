@@ -36,22 +36,22 @@ Route::resources([
 Route::resources([
     'employees' => EmployeeController::class
 ]);
-Route::group([ 'middleware'=> ['auth', 'only']], function(){
-    Route::resources([
-        'types' => TypeController::class
-        ]
-    );
-    Route::resources([
-        'foods' => FoodController::class
-        ]
-    );
-    Route::resources([
-        'tablereses' => TableresController::class
-    ]);
-    Route::resources([
-        'employees' => EmployeeController::class
-    ]); 
-});
+// Route::group([ 'middleware'=> ['auth', 'only']], function(){
+//     Route::resources([
+//         'types' => TypeController::class
+//         ]
+//     );
+//     Route::resources([
+//         'foods' => FoodController::class
+//         ]
+//     );
+//     Route::resources([
+//         'tablereses' => TableresController::class
+//     ]);
+//     Route::resources([
+//         'employees' => EmployeeController::class
+//     ]); 
+// });
 Route::get('/search', [FoodController::class, 'search'])->name('search');
 
 Route::get('login', [AuthenticateController::class, 'loginIndex'])->name('login');

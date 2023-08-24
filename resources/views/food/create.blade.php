@@ -2,23 +2,6 @@
 @section ('content')
 <form action="/foods" method="post" enctype="multipart/form-data">
     @csrf
-    <!-- <label for="name">Type</label>
-    <select name="type_id" id="type_id">
-        @foreach($types as $type)
-            <option value="{{$type->id}}">{{$type->name}}</option>
-        @endforeach
-    </select><br>
-    <label for="name">Name</label>
-    <input type="text" name="name" id="name"><br>
-    <label for="image">Image</label>
-    <input type="file" name="image" id="image">
-    <br>
-    <label for="description">Description</label>
-    <input type="text" name="description" id="description"><br>
-    <label for="price">Price</label>
-    <input type="text" name="price" id="price">
-    <br>
-    <input type="submit" value="Create"> -->
     <div class="mask d-flex align-items-center h-100 gradient-custom-3">
     <div class="container h-100">
       <div class="row d-flex justify-content-center align-items-center h-100">

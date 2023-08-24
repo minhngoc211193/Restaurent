@@ -15,7 +15,7 @@
 
               <form>
               <div class="form-outline mb-4">
-              <label for="name">View</label>
+              <label for="view">View</label>
                   <input type="text" id="view" name="view" placeholder="Place of table" class="form-control form-control-lg" />
                 </div>
                 <div class="form-outline mb-4">
@@ -27,11 +27,25 @@
                     </select><br>
                 </div>
                 <div class="form-outline mb-4">
+              <label for="customer">Customer</label>
+                  <input type="text" id="customer" name="customer" placeholder="Name of customer" class="form-control form-control-lg" />
+                </div>
+                <div class="form-outline mb-4">
+              <label for="phone">Phone</label>
+                  <input type="text" id="phone" name="phone" placeholder="Phone of customer" class="form-control form-control-lg" />
+                </div>
+                <div class="form-outline mb-4">
                 <p> Menu</p>
                  @foreach($foods as $food)
-                 <input type="checkbox" class="form-check-input" name="food[]" id="food" value ="{{$food->id}}">
-                <label for="food" class="form-check-label" style="margin-right:3%">{{$food->name}}</label><br>
+                 <input type="checkbox" class="form-check-input" name="foods[]" id="foods" value ="{{$food->id}}">
+                  <label for="food" class="form-check-label" style="margin-right:3%">{{$food->name}}</label>
+                  <label for="price" class="form-check-label" style="margin:right 0px;">{{$food->price}}</label><br>
                 @endforeach
+                <!-- <select for="foods" name="foods[]" id="foods" multiple>
+                   @foreach($foods as $food)
+                    <option value="{{$food->id}}">{{$food->name}}</option>
+                   @endforeach
+                </select> -->
                 </div>
 
                 <div class="d-flex justify-content-center">

@@ -30,10 +30,19 @@
                     </select><br>
                 </div>
                 <div class="form-outline mb-4">
+              <label for="customer">Customer</label>
+                  <input type="text" id="customer" name="customer" value="{{$tableres->customer}}" class="form-control form-control-lg" />
+                </div>
+                <div class="form-outline mb-4">
+              <label for="phone">Phone</label>
+                  <input type="text" id="phone" name="phone" value="{{$tableres->phone}}"  class="form-control form-control-lg" />
+                </div>
+                <div class="form-outline mb-4">
                 <p> Menu</p>
                  @foreach($foods as $food)
-                 <input type="checkbox" class="form-check-input" name="food[]" id="food" value ="{{$food->id}}">
+                 <input type="checkbox" class="form-check-input" name="foods[]" id="foods" value ="{{$food->id}}">
                 <label for="food" class="form-check-label" style="margin-right:3%">{{$food->name}}</label><br>
+                <label for="price" class="form-check-label" style="margin-right:3%">{{$food->price}}</label><br>
                 @endforeach
                 </div>
 
@@ -51,5 +60,5 @@
       </div>
     </div>
   </div>
-</form>
+</form
 @endsection

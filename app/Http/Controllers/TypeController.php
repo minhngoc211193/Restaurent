@@ -22,6 +22,9 @@ class TypeController extends Controller
      */
     public function create()
     {
+        if (!auth()->check()) {
+            return redirect('/login');
+        }
         $types = Type::all();
         return view('type.create');
     }
@@ -56,6 +59,9 @@ class TypeController extends Controller
      */
     public function edit(string $id)
     {
+        if (!auth()->check()) {
+            return redirect('/login');
+        }
         $type = Type::find($id);
         return view('type.edit', ['type' => $type]);
     }
@@ -82,7 +88,15 @@ class TypeController extends Controller
      */
     public function destroy(string $id)
     {
+        if (!auth()->check()) {
+            return redirect('/login');
+        }
         $type = Type::find($id);
+        // xóa ảnh nếu nó tồn tại
+        if (Storage::exists(str_replace('/storage/','public/', $type->image))) {
+            Storage::delete(str_replace('/storage/','public/', $type->image));
+        }
+        // xóa sản phẩm
         $type->delete();
         return redirect('/types');
     }

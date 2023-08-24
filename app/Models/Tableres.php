@@ -9,7 +9,7 @@ class Tableres extends Model
 {
     use HasFactory;
     protected $table='tablereses';
-    protected $fillable = ['view'];
+    protected $fillable = ['view', 'customer', 'phone'];
     public function employee()
     {
         return $this->belongsTo(Employee::class);

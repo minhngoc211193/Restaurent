@@ -19,14 +19,6 @@ class CheckUser
         
         if(!Auth::check()){
              return redirect('/login');
-            if(Auth::user()->typeofuser == 'admin')
-            {
-             return redirect('/foods');
-            }
-            else {
-                return redirect('/register');
-            }
-        }
         return $next($request);
     }
 }

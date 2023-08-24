@@ -7,7 +7,6 @@
 </h2>       
   <table class="table table-bordered">
     <tr style="border:1px solid">
-        <th>Id</th>
         <th>Name</th>
         <th>Gender</th>
         <th>Birthday</th>
@@ -18,7 +17,6 @@
     </tr>
     @foreach($employees as $employee)
         <tr>
-            <td>{{ $employee->id }}</td>
             <td>{{ $employee->name }}</td>
             <td>{{ $employee->gender }}</td>
             <td>{{ $employee->birthday }}</td>
